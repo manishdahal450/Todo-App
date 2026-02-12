@@ -1,0 +1,155 @@
+/* Body & Container */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #f9f9f9, #e0f7fa);
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px 20px 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Heading */
+#main-heading {
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Inputs & Add Button - Flexbox */
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#todo-input {
+  flex: 2; /* bigger input */
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  min-width: 0; /* important for flex shrink */
+}
+
+#todo-date {
+  flex: 1; /* smaller date input */
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  min-width: 120px; /* ensures full date visible */
+}
+
+.btn-add {
+  flex: 0 0 80px; /* fixed width button */
+  background-color: #60c460;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  transition:
+    transform 0.1s,
+    background-color 0.2s;
+}
+
+.btn-add:hover {
+  background-color: #4ea64e;
+  transform: translateY(-2px);
+}
+
+/* Todo Items */
+.todo-container {
+  width: 100%;
+}
+
+.todo-item {
+  display: grid;
+  grid-template-columns: 30px 1fr 100px 80px;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+  padding: 12px 15px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.2s,
+    background-color 0.2s,
+    opacity 0.3s;
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Checkbox */
+.todo-check {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Done Task */
+.done {
+  text-decoration: line-through;
+  color: #777;
+  transition:
+    color 0.3s,
+    text-decoration 0.3s;
+}
+
+/* Delete Button */
+.btn-delete {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition:
+    transform 0.1s,
+    background-color 0.2s;
+}
+
+.btn-delete:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media screen and (max-width: 500px) {
+  .input-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #todo-input,
+  #todo-date,
+  .btn-add {
+    flex: 1;
+    width: 100%;
+  }
+
+  .todo-item {
+    grid-template-columns: 30px 1fr 80px 60px;
+  }
+}
